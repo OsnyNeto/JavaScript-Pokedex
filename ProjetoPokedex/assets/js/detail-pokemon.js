@@ -6,6 +6,9 @@ const limit = 10;
 let offset = (window.location.href).split('?')[2];
 let url = `https://pokeapi.co/api/v2/pokemon/${number_pokemon}`;
 
+
+
+
 pokeApi.getPokemonsDetalhamento(url).then((pokemons = []) => {
     
     const newHtml = `
@@ -32,7 +35,11 @@ pokeApi.getPokemonsDetalhamento(url).then((pokemons = []) => {
                         ${pokemons.abilitys.map((ability) => `<li class="ability ${ability}">${ability}</li>`).join("")}
                     </ol>
                 </div>
-                <button id="button_voltar" class="detail_types">Voltar</button>
+                
+                    
+                        <button onclick="location.href='index.html'" id="button_voltar"class="detail_types ${pokemons.type} types type">Voltar</button>
+                    
+                       
             </li>
             
             `;
@@ -50,4 +57,5 @@ pokeApi.getPokemonsDetalhamento(url).then((pokemons = []) => {
     `;
     pokemon_detail2.innerHTML += newHtml2;
 
+   
 })
